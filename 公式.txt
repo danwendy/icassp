@@ -1,0 +1,20 @@
+\hat{\theta }=\underset{\theta }{argmin}\sum_{i}^{N}L(G_{\theta }(x_{i})), y_{i})
+
+P_{SF}^{0}=f_{SF}(I_{LR})
+
+P_{DF}^{l} = \left\{\begin{matrix}
+f_{DF}^{l}(P_{SF}^{0}),\: \; \; \; \; \; \; \;\; \; \; \;\;  l=1\\ 
+\\
+f_{DF}^{l}(f_{UP}^{l}(P_{DF}^{l-1})), \; \; \; \; l\neq 1
+\end{matrix}\right.
+
+P_{UP}^{l} = f_{UP}^{l}(P_{DF}^{l})
+
+I_{SR}^{l} = f_{Rec}^{l}(P_{UP}^{l})
+
+L_{adv} = \sum_{i=1}^{N}-logD(G(I_{i}^{LR}))
+
+L_{mse} = \frac{1}{N}\sum_{i=1}^{N}\left \| I_{i}^{SR} -I_{i}^{HR}\right \|_{2}^{2}
+
+L = L_{mse} +\gamma  L_{adv}
+
